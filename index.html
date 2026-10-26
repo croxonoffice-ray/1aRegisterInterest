@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1A Traveller · A digital travel journal · Register your interest</title>
+<meta name="description" content="1A Traveller is a digital travel journal for recording your journeys, experiences and memories. Register your interest and be the first to know when it opens.">
+<link rel="canonical" href="https://1atraveller.com/">
+<meta name="theme-color" content="#163653">
+<link rel="icon" type="image/png" href="/logo-1a-traveller-256.png">
+<link rel="apple-touch-icon" href="/logo-1a-traveller-256.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="1A Traveller">
+<meta property="og:title" content="1A Traveller · A life well travelled, beautifully recorded.">
+<meta property="og:description" content="A digital travel journal for recording your journeys, experiences and memories. Register your interest.">
+<meta property="og:url" content="https://1atraveller.com/">
+<meta property="og:image" content="https://1atraveller.com/logo-1a-traveller-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "1A Traveller",
+  "url": "https://1atraveller.com/",
+  "description": "A digital travel journal for recording your journeys, experiences and memories."
+}
+</script>
+<style>
+:root{
+  --navy:#163653; --gold:#B8935A; --accent:#C6A15B; --accent-hover:#D0AE6C; --accent-shadow:#9C7C3F;
+  --page:#FDFCF9; --box:#FAF8F3; --stone:#E7E1D7; --ink:#241E17; --ink-soft:#5B5346;
+  --paper-line:rgba(22,54,83,0.14); --display:'EB Garamond', Georgia, serif;
+}
+*{ box-sizing:border-box; }
+html, body{ margin:0; padding:0; }
+body{ min-height:100vh; display:flex; flex-direction:column; background:var(--page); color:var(--ink);
+  font-family:'Inter', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+
+/* Navy band with the logo and tagline, as on the sign-in page */
+.band{ background:var(--navy); border-bottom:3px solid var(--gold); padding:40px 24px 34px; text-align:center; }
+.logo{ width:120px; height:120px; display:block; margin:0 auto 18px; }
+.tagline{ margin:0; font-family:var(--display); font-size:26px; font-weight:500; color:#FFFFFF; }
+
+main{ flex:1; display:flex; flex-direction:column; align-items:center; padding:40px 20px 56px; gap:44px; }
+.card{ width:100%; max-width:460px; background:#FFFFFF; border:1px solid var(--stone); border-radius:18px;
+  padding:34px 32px 30px; box-shadow:0 1px 2px rgba(22,54,83,0.06), 0 12px 32px rgba(22,54,83,0.08); text-align:center; }
+h1{ font-family:var(--display); font-size:30px; font-weight:600; color:var(--navy); margin:0 0 10px; }
+.intro{ font-family:var(--display); font-size:17.5px; line-height:1.55; color:var(--ink-soft); margin:0 auto 10px; }
+.soon{ display:inline-block; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-shadow);
+  background:var(--box); border:1px solid var(--stone); border-radius:999px; padding:6px 12px; margin:6px 0 24px; }
+.field{ text-align:left; margin-bottom:22px; }
+.field label{ display:block; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:8px; }
+.field input{ width:100%; background:transparent; border:none; border-bottom:1px solid var(--paper-line); color:var(--navy);
+  font-size:18px; font-family:var(--display); padding:6px 2px 10px; transition:border-color .25s; }
+.field input:focus{ border-bottom-color:var(--gold); outline:none; }
+.field input::placeholder{ color:rgba(91,83,70,0.45); }
+.hp{ position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+.btn{ width:100%; cursor:pointer; background:var(--accent); color:var(--navy); border:none; border-radius:6px; padding:15px 20px;
+  font-family:'Inter', sans-serif; font-size:15px; font-weight:600; letter-spacing:0.03em;
+  box-shadow:0 4px 0 var(--accent-shadow), 0 10px 20px rgba(22,54,83,0.16); transition:transform .15s, box-shadow .15s, background .2s; }
+.btn:hover{ background:var(--accent-hover); transform:translateY(-1px); }
+.btn:active{ transform:translateY(3px); box-shadow:0 1px 0 var(--accent-shadow), 0 4px 10px rgba(22,54,83,0.16); }
+.btn:disabled{ opacity:0.7; cursor:default; transform:none; }
+.status{ margin:16px 0 0; font-size:13.5px; line-height:1.5; min-height:20px; }
+.status:empty{ margin:0; min-height:0; }
+.status.error{ color:#9B2C2C; }
+.note{ margin:18px 0 0; font-size:12px; line-height:1.6; color:var(--ink-soft); }
+.thanks[hidden], form[hidden]{ display:none; }
+.thanks{ padding:6px 0 2px; }
+.thanks .tick{ width:54px; height:54px; border-radius:50%; background:var(--box); border:1px solid var(--stone); margin:0 auto 14px;
+  display:flex; align-items:center; justify-content:center; color:var(--navy); }
+.thanks h2{ font-family:var(--display); font-size:24px; font-weight:600; color:var(--navy); margin:0 0 8px; }
+.thanks p{ font-family:var(--display); font-size:17px; line-height:1.55; color:var(--ink-soft); margin:0; }
+
+/* What 1A Traveller does */
+.features{ width:100%; max-width:920px; text-align:center; }
+.features h2{ font-family:var(--display); font-size:26px; font-weight:500; color:var(--navy); margin:0 0 22px; }
+.grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; text-align:left; }
+.feature{ background:var(--box); border:1px solid var(--stone); border-radius:14px; padding:20px 20px 18px; }
+.feature svg{ width:26px; height:26px; color:var(--navy); }
+.feature h3{ font-family:var(--display); font-size:19px; font-weight:600; color:var(--navy); margin:10px 0 6px; }
+.feature p{ font-size:14px; line-height:1.55; color:var(--ink-soft); margin:0; }
+
+footer{ border-top:1px solid var(--stone); padding:22px 20px 28px; text-align:center; font-size:12.5px; color:var(--ink-soft); }
+footer strong{ font-family:var(--display); font-size:15px; font-weight:500; color:var(--navy); }
+
+@media (max-width: 720px){ .grid{ grid-template-columns:1fr; } }
+@media (max-width: 480px){
+  .band{ padding:28px 18px 24px; }
+  .logo{ width:96px; height:96px; margin-bottom:14px; }
+  .tagline{ font-size:19px; }
+  main{ padding:26px 14px 40px; gap:34px; }
+  .card{ padding:28px 22px 24px; }
+  h1{ font-size:26px; }
+}
+</style>
+</head>
+<body>
+<header class="band">
+  <img class="logo" src="/logo-1a-traveller-256.png" alt="1A Traveller" width="120" height="120">
+  <p class="tagline">A life well travelled, beautifully recorded.</p>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="welcome">
+    <h1 id="welcome">Welcome to 1A Traveller.</h1>
+    <p class="intro">A calm space to organise, reflect upon, and preserve your journeys.</p>
+    <span class="soon">Opening soon</span>
+
+    <form id="interest-form" novalidate>
+      <div class="field">
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+      </div>
+      <!-- Left empty by people; filled in by spam robots -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">Website</label>
+        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="btn" id="submit" type="submit">Register my interest</button>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="note">We’ll only use your email to let you know when 1A Traveller opens.</p>
+    </form>
+
+    <div class="thanks" id="thanks" hidden>
+      <div class="tick"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2 id="thanks-title">Thank you.</h2>
+      <p id="thanks-text">You’re on the list. We’ll be in touch when 1A Traveller opens.</p>
+    </div>
+  </section>
+
+  <section class="features" aria-labelledby="what">
+    <h2 id="what">A travel journal for the journeys that matter</h2>
+    <div class="grid">
+      <article class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5c-3.5-.5-6.5 0-8.5 1.5z"/><path d="M12 6.5v13"/></svg>
+        <h3>Record every journey</h3>
+        <p>Flights, lounges, hotels, cruises, meals and the moments in between, with your photos and your own words.</p>
+      </article>
+      <article class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 10l1.5 1.5L13 8.5M8.5 15.5l1.5 1.5 3-3"/></svg>
+        <h3>Pack with confidence</h3>
+        <p>Editable packing lists for carry-on, summer, winter, ski, camping, cruise and road trips.</p>
+      </article>
+      <article class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12a7 7 0 1 0 14 0 7 7 0 0 0-14 0z"/><path d="M5.5 9.5h13M5.5 14.5h13M12 5c-2 2-3 4.5-3 7s1 5 3 7c2-2 3-4.5 3-7s-1-5-3-7z"/></svg>
+        <h3>Keep the memories</h3>
+        <p>Writing prompts for each day, a calendar of where you’ve been, and keepsakes to print and share.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>1A Traveller</strong><br>
+  A life well travelled, beautifully recorded.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+// Saved through register_interest() in the 1A Traveller Supabase project.
+// The table itself can't be read from here; the function only adds an email.
+const SUPABASE_URL = 'https://ogxsffwiydwaduxazvzh.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_LnckRHxIUkQv4NCWqyY7iQ_i3OLY7ow';
+const sb = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: false } }) : null;
+
+const form = document.getElementById('interest-form');
+const emailEl = document.getElementById('email');
+const btn = document.getElementById('submit');
+const statusEl = document.getElementById('status');
+const say = (text, isError) => { statusEl.textContent = text; statusEl.className = 'status' + (isError ? ' error' : ''); };
+const thank = (already) => {
+  form.hidden = true;
+  document.getElementById('thanks').hidden = false;
+  if (already) {
+    document.getElementById('thanks-title').textContent = 'You’re already on the list.';
+    document.getElementById('thanks-text').textContent = 'Thank you. We’ll be in touch when 1A Traveller opens.';
+  }
+};
+// Where the visitor came from (e.g. ?utm_source=instagram), to see what's working
+function source(){
+  const q = new URLSearchParams(location.search);
+  const s = q.get('utm_source') || q.get('ref') || (document.referrer ? new URL(document.referrer).hostname : '');
+  return s ? s.slice(0, 100) : null;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = emailEl.value.trim();
+  if (document.getElementById('website').value) { thank(false); return; }   // a robot: say thanks, save nothing
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { say('Please enter a valid email address.', true); emailEl.focus(); return; }
+  if (!sb) { say('We couldn’t connect just now. Please try again in a moment.', true); return; }
+  btn.disabled = true; btn.textContent = 'Registering…'; say('');
+  try {
+    const { data, error } = await sb.rpc('register_interest', { p_email: email, p_source: source() });
+    if (error) throw error;
+    if (data === 'invalid') { say('Please enter a valid email address.', true); emailEl.focus(); return; }
+    thank(data === 'exists');
+  } catch (err) {
+    console.error(err);
+    say('Something went wrong. Please try again in a moment.', true);
+  } finally {
+    btn.disabled = false; btn.textContent = 'Register my interest';
+  }
+});
+</script>
+</body>
+</html>
